@@ -5,7 +5,7 @@ class ROMsMenu extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isOpen: true,
+            isOpen: false,
             roms: [
                 {name: 'test_rom'},
                 {name: 'test_rom_2'},
