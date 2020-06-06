@@ -1,7 +1,7 @@
-// @import "./node_modules/nes.css/css/nes.css"
-
 body {
     margin: 0;
+    font-family: 'Press Start 2P';
+    font-size: 12px;
 }
 
 .app {
@@ -61,4 +61,38 @@ body {
         justify-content: flex-start;
         align-items: flex-start;
     }
+}
+
+.roms-dialog {
+    margin: 8px;
+
+    .rom-container {
+        margin-top: 8px;
+        display: flex;
+        justify-content: space-between;
+
+        &__image {
+            background: #444;
+            width: 64px;
+            height: 60px;
+        }
+
+        &__name {
+            flex-grow: 1;
+            margin-left: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        &__button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+// Blueprint
+.bp3-dialog {
+    padding: 0;
 }

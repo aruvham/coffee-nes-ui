@@ -5,19 +5,34 @@ class ROMsMenu extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isOpen: true
+            isOpen: true,
+            roms: [
+                {name: 'test_rom'},
+                {name: 'test_rom_2'},
+                {name: 'test_rom_3'},
+                {name: 'test_rom_4'},
+            ]
         };
     }
 
-    render() {
-        const {isOpen} = this.state;
+    openDialog() {
+        this.setState({isOpen: true});
+    }
 
+    closeDialog() {
+        this.setState({isOpen: false});
+    }
+
+    render() {
+        const {isOpen, roms} = this.state;
         return (
             <Dialog
                 isOpen={isOpen}
             >
-                <div className='roms-dialog'>
-                    <button>Select your file</button>
+                <div className='roms-dialog nes-container with-title'>
+                    <div className='roms-dialog__header title'>ROMs</div>
+                    <button className='nes-btn'>Select your file</button>
+                    <div>{roms.map(ROMContainer)}</div>
                 </div>
             </Dialog>
         );
@@ -27,10 +42,12 @@ class ROMsMenu extends React.Component {
 function ROMContainer(props) {
     const {name} = props;
     return (
-      <div className='rom-container'>
+      <div className='rom-container nes-container'>
           <div className='rom-container__image' />
           <div className='rom-container__name'>{name}</div>
-          <button className='rom-container__button'>{'X'}</button>
+          <div className='rom-container__button'>
+            <button>{'X'}</button>
+          </div>
       </div>
     );
 }
