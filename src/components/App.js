@@ -6,7 +6,7 @@ function App() {
   return (
     <div className='app'>
       <header className='header'>
-        Coffee NES
+        <span>Coffee NES</span>
       </header>
       <Canvas />
       <Menu />

@@ -7,8 +7,11 @@ class About extends React.Component {
         super(props);
 
         this.state = {
-            isOpen: true,
+            isOpen: false,
         };
+
+        this.openDialog = this.openDialog.bind(this);
+        this.closeDialog = this.closeDialog.bind(this);
     }
 
     openDialog() {
@@ -23,11 +26,19 @@ class About extends React.Component {
         const {isOpen} = this.state;
 
         return (
-            <Dialog isOpen={isOpen}>
-                <div className='dialog nes-container with-title'>
-                    <div className='title'>About</div>
-                </div>
-            </Dialog>
+            <React.Fragment>
+                <button className='nes-btn' onClick={this.openDialog}>About</button>
+                <Dialog
+                    canEscapeKeyClose={false}
+                    isOpen={isOpen}
+                    onClose={this.closeDialog}
+                    transitionDuration={0}
+                >
+                    <div className='dialog nes-container with-title'>
+                        <div className='title'>About</div>
+                    </div>
+                </Dialog>
+            </React.Fragment>
         );
     }
 }

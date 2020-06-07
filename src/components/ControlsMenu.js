@@ -16,6 +16,8 @@ class ControlsMenu extends React.Component {
         this.onKeyDown = this.onKeyDown.bind(this);
         this.onFormReset = this.onFormReset.bind(this);
         this.onFormSave = this.onFormSave.bind(this);
+        this.openDialog = this.openDialog.bind(this);
+        this.closeDialog = this.closeDialog.bind(this);
     }
 
     openDialog() {
@@ -66,69 +68,77 @@ class ControlsMenu extends React.Component {
     }
 
     onFormSave() {
-
+        this.closeDialog();
     }
 
     render() {
         const {isOpen, controls, selectedGroup} = this.state;
          
         return (
-            <Dialog isOpen={isOpen}>
-                <div className='dialog nes-container with-title'>
-                    <div className='title'>Controls</div>
-                    <div className='form'>
-                        <div className='form__input form__input--radio'>    
-                            <label>
-                                <input
-                                    checked={selectedGroup === 'Player 1'}
-                                    class='nes-radio'
-                                    onChange={this.onSelectedGroupOptionChange}
-                                    type='radio'
-                                    value='Player 1'
-                                />
-                                <span>Player 1</span>
-                            </label>
-                            <label>
-                                <input
-                                    checked={selectedGroup === 'Player 2'}
-                                    class='nes-radio'
-                                    onChange={this.onSelectedGroupOptionChange}
-                                    type='radio'
-                                    value='Player 2'
-                                />
-                                <span>Player 2</span>
-                            </label>
-                            <label>
-                                <input
-                                    checked={selectedGroup === 'Other'}
-                                    class='nes-radio'
-                                    onChange={this.onSelectedGroupOptionChange}
-                                    type='radio'
-                                    value='Other'
-                                />
-                                <span>Other</span>
-                            </label>
+            <React.Fragment>
+                <button className='nes-btn' onClick={this.openDialog}>Controls</button>
+                <Dialog
+                    canEscapeKeyClose={false}
+                    isOpen={isOpen}
+                    onClose={this.closeDialog}
+                    transitionDuration={0}
+                >
+                    <div className='dialog nes-container with-title'>
+                        <div className='title'>Controls</div>
+                        <div className='form'>
+                            <div className='form__input form__input--radio'>    
+                                <label>
+                                    <input
+                                        checked={selectedGroup === 'Player 1'}
+                                        class='nes-radio'
+                                        onChange={this.onSelectedGroupOptionChange}
+                                        type='radio'
+                                        value='Player 1'
+                                    />
+                                    <span>Player 1</span>
+                                </label>
+                                <label>
+                                    <input
+                                        checked={selectedGroup === 'Player 2'}
+                                        class='nes-radio'
+                                        onChange={this.onSelectedGroupOptionChange}
+                                        type='radio'
+                                        value='Player 2'
+                                    />
+                                    <span>Player 2</span>
+                                </label>
+                                <label>
+                                    <input
+                                        checked={selectedGroup === 'Other'}
+                                        class='nes-radio'
+                                        onChange={this.onSelectedGroupOptionChange}
+                                        type='radio'
+                                        value='Other'
+                                    />
+                                    <span>Other</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div className='controls-group'>
+                            {Object.values(controls[selectedGroup]).map((props) => <ControlInput {...props} onKeyDown={this.onKeyDown} />)}
+                        </div>
+                        <div className='actions-bar'>
+                            <button
+                                className='nes-btn'
+                                onClick={this.onFormReset}
+                            >
+                                Reset
+                            </button>
+                            <button
+                                className='nes-btn is-primary'
+                                onClick={this.onFormSave}
+                            >
+                                Save
+                            </button>
                         </div>
                     </div>
-                    <div className='controls-group'>
-                        {Object.values(controls[selectedGroup]).map((props) => <ControlInput {...props} onKeyDown={this.onKeyDown} />)}
-                    </div>
-                    <div className='actions-bar'>
-                        <button
-                            className='nes-btn'
-                            onClick={this.onFormReset}
-                        >
-                            Reset
-                        </button>
-                        <button
-                            className='nes-btn is-primary'
-                            onClick={this.onFormSave}
-                        >
-                            Save
-                        </button>
-                    </div>
-                </div>
-            </Dialog>
+                </Dialog>
+            </React.Fragment>
         );
     }
 }
@@ -141,7 +151,7 @@ const ControlInput = (props) => {
         <div className='control-input' key={id}>
             <span className='control-input__label'>{label}</span>
             <input
-                className='control-input__value nes-input'
+                className='control-input__value nes-btn'
                 id={id}
                 onKeyDown={e => onKeyDown(e, props)}
                 value={value}

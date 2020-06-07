@@ -4,28 +4,30 @@ import React from 'react';
 import RomsMenu from './RomsMenu';
 import SettingsMenu from './SettingsMenu';
 
-function Menu() {
-  return (
-    <div className='menu'>
-        <div className='menu__top'>
-            <button className='nes-btn'>ROMs</button>
-            <button className='nes-btn'>Settings</button>
-            <button className='nes-btn'>Controls</button>
-            <button className='nes-btn is-disabled'>About</button>
-        </div>
-        <div className='menu__bottom'>
-            <button className='nes-btn'>Pause</button>
-            <button className='nes-btn'>Next Frame</button>
-            <button className='nes-btn is-disabled'>Save State</button>
-            <button className='nes-btn is-disabled'>Load State</button>
-            <FPSDisplay fps={30}/>
-        </div>
-        <RomsMenu />
-        <SettingsMenu />
-        <ControlsMenu />
-        <About />
-    </div>
-  );
+class Menu extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <div className='menu'>
+                <div className='menu__top'>
+                    <RomsMenu />
+                    <SettingsMenu />
+                    <ControlsMenu />
+                    <About />
+                </div>
+                <div className='menu__bottom'>
+                    <button className='nes-btn'>Pause</button>
+                    <button className='nes-btn'>Next Frame</button>
+                    <button className='nes-btn is-disabled'>Save State</button>
+                    <button className='nes-btn is-disabled'>Load State</button>
+                    <FPSDisplay fps={30}/>
+                </div>
+            </div>
+        );
+    }
 }
 
 function FPSDisplay(props) {
