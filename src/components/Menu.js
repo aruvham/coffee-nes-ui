@@ -1,3 +1,4 @@
+import About from './About';
 import ControlsMenu from './ControlsMenu';
 import React from 'react';
 import RomsMenu from './RomsMenu';
@@ -22,6 +23,7 @@ function Menu() {
         <RomsMenu />
         <SettingsMenu />
         <ControlsMenu />
+        <About />
     </div>
   );
 }

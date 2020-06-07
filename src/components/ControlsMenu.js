@@ -7,7 +7,7 @@ class ControlsMenu extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isOpen: true,
+            isOpen: false,
             controls: _.cloneDeep(defaltControls),
             selectedGroup: 'Player 1',
         };
