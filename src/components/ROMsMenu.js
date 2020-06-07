@@ -1,16 +1,17 @@
-import React from 'react';
 import {Dialog} from '@blueprintjs/core';
+import React from 'react';
 
-class ROMsMenu extends React.Component {
+class RomsMenu extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
             isOpen: false,
             roms: [
-                {name: 'test_rom'},
-                {name: 'test_rom_2'},
-                {name: 'test_rom_3'},
-                {name: 'test_rom_4'},
+                {name: 'Alter Ego'},
+                {name: 'Cheril the Goddess'},
+                {name: 'Dushlan'},
+                {name: 'Mad Wizard'},
             ]
         };
     }
@@ -25,31 +26,28 @@ class ROMsMenu extends React.Component {
 
     render() {
         const {isOpen, roms} = this.state;
+
         return (
-            <Dialog
-                isOpen={isOpen}
-            >
-                <div className='roms-dialog nes-container with-title'>
-                    <div className='roms-dialog__header title'>ROMs</div>
+            <Dialog isOpen={isOpen}>
+                <div className='dialog nes-container with-title'>
+                    <div className='title'>ROMs</div>
                     <button className='nes-btn'>Select your file</button>
-                    <div>{roms.map(ROMContainer)}</div>
+                    <div className='rom-list-container'>{roms.map(RomContainer)}</div>
                 </div>
             </Dialog>
         );
     }
 }
 
-function ROMContainer(props) {
+function RomContainer(props) {
     const {name} = props;
+
     return (
-      <div className='rom-container nes-container'>
-          <div className='rom-container__image' />
-          <div className='rom-container__name'>{name}</div>
-          <div className='rom-container__button'>
-            <button>{'X'}</button>
-          </div>
+      <div className='rom-container nes-container' key={name}>
+            <div className='rom-container__name'>{name}</div>
+            <button className='rom-container__button nes-btn is-error'>X</button>
       </div>
     );
 }
 
-export default ROMsMenu;
+export default RomsMenu;

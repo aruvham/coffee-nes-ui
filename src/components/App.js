@@ -1,10 +1,6 @@
-import React from 'react';
 import Canvas from './Canvas';
 import Menu from './Menu';
-import ROMsMenu from './ROMsMenu';
-
-import "nes.css/css/nes.min.css";
-import "@blueprintjs/core/lib/css/blueprint.css";
+import React from 'react';
 
 function App() {
   return (
@@ -14,7 +10,6 @@ function App() {
       </header>
       <Canvas />
       <Menu />
-      <ROMsMenu />
     </div>
   );
 }

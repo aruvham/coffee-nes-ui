@@ -1,0 +1,28 @@
+.rom-list-container {
+    max-height: 66.66vh;
+    overflow-y: scroll;
+
+    .rom-container {
+        margin-top: 0.5rem;
+        display: flex;
+        justify-content: space-between;
+        padding: 0.75rem 1rem;
+
+        &:first-of-type {
+            margin-top: 1rem;
+        }
+
+        &__name {
+            flex-grow: 1;
+            margin-left: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        &__button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

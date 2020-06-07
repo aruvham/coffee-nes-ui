@@ -4,107 +4,13 @@ body {
     font-size: 12px;
 }
 
-.app {
-    height: 100vh;
-    width: 100vw;
-    display: grid;
-    grid-template-columns: 1fr 66.66vh 1fr;
-    grid-template-rows: 1fr 66.66vh 1fr;
-}
-
-.header {
-    grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 1;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.canvas {
-    grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row-start: 2;
-    grid-row-end: 2;
-
-    &__screen {
-        height: 100%;
-        width: 100%;
-        background: #212529;
-    }
-}
-
-.menu {
-    grid-column-start: 3;
-    grid-column-end: 3;
-    grid-row-start: 2;
-    grid-row-end: 2;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-left: 8px;
-
-    &__top {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-
-        button {
-            margin-bottom: 8px;
-        }
-    }
-
-    &__bottom {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-
-        button {
-            margin-top: 8px;
-        }
-
-        .fps-display {
-            margin-top: 8px;
-        }
-    }
-}
-
-.roms-dialog {
-    margin: 8px;
-
-    .rom-container {
-        margin-top: 8px;
-        display: flex;
-        justify-content: space-between;
-
-        &__image {
-            background: #212529;
-            width: 64px;
-            height: 60px;
-        }
-
-        &__name {
-            flex-grow: 1;
-            margin-left: 8px;
-            display: flex;
-            align-items: center;
-        }
-
-        &__button {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    }
-}
-
 // Blueprint
 .bp3-dialog {
+    background: white;
+    border-radius: 0;
     padding: 0;
 }
+
+@import './components/App.scss';
+@import './components/RomsMenu.scss';
+@import './components/ControlsMenu.scss';
