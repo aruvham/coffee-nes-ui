@@ -18,55 +18,19 @@
     font-size: 20px;
 }
 
-.canvas {
+.footer {
     grid-column-start: 2;
     grid-column-end: 2;
-    grid-row-start: 2;
-    grid-row-end: 2;
-
-    &__screen {
-        height: 100%;
-        width: 100%;
-        background: #212529;
-    }
-}
-
-.menu {
-    grid-column-start: 3;
-    grid-column-end: 3;
-    grid-row-start: 2;
-    grid-row-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 3;
 
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-left: 8px;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin: 0.5em;
 
-    &__top {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-
-        button {
-            margin-bottom: 8px;
-        }
-    }
-
-    &__bottom {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-
-        button {
-            margin-top: 8px;
-        }
-
-        .fps-display {
-            margin-top: 8px;
-        }
+    span {
+        margin-left: 0.5rem;
     }
 }
 

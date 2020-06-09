@@ -1,0 +1,12 @@
+.canvas {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+
+    &__screen {
+        height: 100%;
+        width: 100%;
+        background: #182026;
+    }
+}

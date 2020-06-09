@@ -23,19 +23,10 @@ class Menu extends React.Component {
                     <button className='nes-btn'>Next Frame</button>
                     <button className='nes-btn is-disabled'>Save State</button>
                     <button className='nes-btn is-disabled'>Load State</button>
-                    <FPSDisplay fps={30}/>
                 </div>
             </div>
         );
     }
-}
-
-function FPSDisplay(props) {
-    const {fps} = props;
-    const fpsDisplay = fps ? `${30} FPS` : 'Paused';
-    return (
-        <span className='fps-display'>{fpsDisplay}</span>
-    );
 }
 
 export default Menu;
