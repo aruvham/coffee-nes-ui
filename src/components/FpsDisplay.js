@@ -5,7 +5,7 @@ function FpsDisplay(props) {
     const fpsDisplay = fps ? `${30} FPS` : 'Paused';
     return (
         <div className='fps-container'>
-            <span className='fps-container__display'>{fpsDisplay}</span>
+            <span>{fpsDisplay}</span>
         </div>    
     );
 }

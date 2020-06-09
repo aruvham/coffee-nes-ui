@@ -120,7 +120,16 @@ class ControlsMenu extends React.Component {
                             </div>
                         </div>
                         <div className='controls-group'>
-                            {Object.values(controls[selectedGroup]).map((props) => <ControlInput {...props} onKeyDown={this.onKeyDown} />)}
+                            {Object.values(controls[selectedGroup]).map((props) => {
+                                const {label, group} = props;
+                                const id = `${group}_${label}`;
+                                return <ControlInput
+                                    {...props}
+                                    id={id}
+                                    key={id}
+                                    onKeyDown={this.onKeyDown}
+                                />
+                            })}
                         </div>
                         <div className='actions-bar'>
                             <button
@@ -144,16 +153,15 @@ class ControlsMenu extends React.Component {
 }
 
 const ControlInput = (props) => {
-    const {label, value, group, onKeyDown} = props;
-    const id = `${group}_${label}`;
+    const {label, value, onKeyDown, id} = props;
 
     return (
-        <div className='control-input' key={id}>
+        <div className='control-input'>
             <span className='control-input__label'>{label}</span>
             <input
                 className='control-input__value nes-btn'
                 id={id}
-                onKeyDown={e => onKeyDown(e, props)}
+                onKeyDown={(e) => onKeyDown(e, props)}
                 value={value}
                 placeholder='None'
             />

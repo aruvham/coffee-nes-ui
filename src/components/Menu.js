@@ -7,13 +7,14 @@ import SettingsMenu from './SettingsMenu';
 class Menu extends React.Component {
     constructor(props) {
         super(props);
+        this.services = props.services;
     }
 
     render() {
         return (
             <div className='menu'>
                 <div className='menu__top'>
-                    <RomsMenu />
+                    <RomsMenu services={this.services} />
                     <SettingsMenu />
                     <ControlsMenu />
                     <About />
