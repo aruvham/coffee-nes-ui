@@ -5,19 +5,19 @@ class LocalStorageService {
     constructor() {
         this.store = window.localStorage;
         this.storeKey = 'coffee-nes';
-        this.cached = null;
+        this.cache = null;
         this.installDefaultRoms();
         window.LocalStorageService = this;
     }
 
     set(data) {
-        this.cached = data;
+        this.cache = data;
         this.store.setItem(this.storeKey, JSON.stringify(data));
     }
     
     get() {
-        if (!this.cached) {
-            this.cached = JSON.parse(this.store.getItem(this.storeKey));
+        if (!this.cache) {
+            this.cache = JSON.parse(this.store.getItem(this.storeKey));
         }
         return JSON.parse(this.store.getItem(this.storeKey));
     }
@@ -27,7 +27,12 @@ class LocalStorageService {
         if (!currentData || currentData.length === 0) this.set(defaultRoms);
     }
 
-    gatRomDataAtIdx(idx) {
+    addRomData(name, romData) {
+        const currentData = this.get();
+        this.set([{name, romData, userCreated: true}, ...currentData]);
+    }
+
+    getRomDataAtIdx(idx) {
         const currentData = this.get();
         return currentData[idx];
     }
