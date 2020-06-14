@@ -3,10 +3,11 @@
     grid-column-end: 2;
     grid-row-start: 2;
     grid-row-end: 2;
+    background: #182026;
 
-    &__screen {
-        height: 100%;
-        width: 100%;
+    canvas {
         background: #182026;
+        image-rendering: pixelated;
+        width: 66.66vh;
     }
 }

@@ -15,7 +15,7 @@ class App extends React.Component {
                 <header className='header'>
                     <span>Coffee NES</span>
                 </header>
-                <Canvas />
+                <Canvas services={this.services} />
                 <Menu services={this.services} />
                 <FpsDisplay />
                 <footer className='footer'>
